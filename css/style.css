@@ -1,39 +1,49 @@
+/* Importing the Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
+/* Keyframes for logo animation, gradually changes width and opacity */
 @keyframes logoAnimation {
-    from{
+    from {
         width: 25px;
         opacity: 0;
     }
-    to{
+    to {
         width: 475px;
         opacity: 1;
     }
 }
 
-body{
+/* Global body styles, sets font, background image, and background color */
+body {
     font-family: 'Poppins', serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
-header{
+/* Header styles, sets up flexbox for alignment and direction */
+header {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.nav_links{
+/* Styles for navigation links, using flexbox for vertical layout and color */
+.nav_links {
     display: flex;
     flex-direction: column;
     color: #007BFF;
 }
 
-.nav_item a:visited{
-    color: #007BFF;
+/* This targets both unvisited and visited links within .nav_item, ensuring consistency */
+.nav_item a:link, .nav_item a:visited {
+    color: #007BFF; /* The color for links */
+    }
+a {
+    color: #007BFF; /*Default link color */
 }
 
-.card > header{
+/* Styles for headers within cards, includes background color, border, padding, and border radius */
+.card > header {
     background-color: #288088;
     border: solid 2px #45ADAD;
     padding-top: 20px;
@@ -43,13 +53,17 @@ header{
     width: 100%;
 }
 
-.card{
+/* Base card styles, including border radius and flex-basis for layout */
+.card {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     flex-basis: 450px;
 }
 
-.pricing{
+/* Styles for the pricing section using flexbox for center alignment and wrapping */
+.pricing {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -57,13 +71,15 @@ header{
     flex-wrap: wrap;
 }
 
-.gallery img{
+/* Gallery image styles, includes border, margin, and width */
+.gallery img {
     border: solid 10px #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
-.gallery{
+/* Gallery container styles using flexbox for layout */
+.gallery {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -71,73 +87,71 @@ header{
     justify-content: center;
 }
 
-
+/* Media query for screens wider than 900px, changes header and navigation link layouts */
 @media screen and (min-width: 900px) {
-    header{
+    header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
     }
 
-    .nav_links{
+    .nav_links {
         display: flex;
         flex-direction: row;
     }
 
-    .pricing{
+    .pricing {
         display: flex;
         flex-direction: row;
         align-content: center;
         justify-content: center;
     }
 
-    .card{
+    .card {
         flex-direction: row;
         flex-basis: 275px;
     }
 
-    body > header{
+    body > header {
         position: sticky;
         top: 0;
     }
 }
 
+/* Disables animations for users who prefer reduced motion */
 @media screen and (prefers-reduced-motion: reduce) {
-    #logo{
-      animation: none;
+    #logo {
+        animation: none;
     }
-  }
+}
 
-  @media print and (orientation: portrait){
-    body{
+/* Print styles, adjusts fonts, hides backgrounds and certain elements for print layout */
+@media print and (orientation: portrait) {
+    body {
         font-family: 'Arial', 'Helvetica';
         background-image: none;
     }
 
-    .nav_links{
+    .nav_links {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    .pricing{
+    .pricing {
         display: flex;
         align-items: flex-end;
         flex-wrap: nowrap;
         flex-direction: row;
     }
 
-    .card{
+    .card {
         border: solid 2px #45ADDD;
         flex-basis: 325px;
     }
 
-    #gallery{
-        display: none;
-    }
-
-    .gallery{
+    #gallery, .gallery {
         display: none;
     }
 
